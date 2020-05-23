@@ -4,20 +4,34 @@ import ProductItem from './../components/ProductItem';
 import { connect } from 'react-redux';
 const axios = require('axios');
 
-var products = [];
-axios.get('http://localhost:3000/products')
-.then(function (response) {
-  // console.log(response.data);
-  products = response.data;
-})
-.catch(function (error) {
-  console.log(error);
-})
 class ProductListPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: []
+    }
+  }
+
+  //au khi render lần 1 xong thì cdm sẽ đc gọi => sau đó setState => render lại lần 2
+  componentDidMount() {
+    //thời gian gọi lên server mất 5s, trong khi thời gian render mất 1s
+    //mặc dù gắn products nhưng dữ liệu sẽ ko được trả ra
+    axios.get('http://localhost:3000/products')
+      .then((response) => {
+        // console.log(response.data);
+        this.setState({
+          products : response.data
+        });
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
 
   render() {
-    // var { products } = this.props;
-    
+    var { products } = this.state;
+
     return (
       <div className="col-md-12 mt-3">
         <button type="button" className="btn btn-primary">Thêm sản phẩm</button>
