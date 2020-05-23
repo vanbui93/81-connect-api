@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import ProductItem from './ProductItem'
+import React, { Component } from 'react';
 
 export default class ProductList extends Component {
   render() {
@@ -18,9 +17,7 @@ export default class ProductList extends Component {
             </tr>
           </thead>
           <tbody>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
+            {this.props.children}
           </tbody>
         </table>
       </div>
