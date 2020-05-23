@@ -17,6 +17,18 @@
       "price": "400",
       "status": "true",
       "id": 3
+    },
+    {
+      "name": "Chanh Dây đỏ Úc",
+      "price": "12000",
+      "status": true,
+      "id": 4
+    },
+    {
+      "name": "Bánh Mì",
+      "price": "10000",
+      "status": "",
+      "id": 5
     }
   ]
 }

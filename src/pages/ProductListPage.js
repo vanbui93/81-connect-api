@@ -3,6 +3,7 @@ import ProductList from './../components/ProductList';
 import ProductItem from './../components/ProductItem';
 import { connect } from 'react-redux';
 import callApi from './../utils/apiCaller';
+import { Link } from 'react-router-dom';
 
 const axios = require('axios');
 
@@ -31,7 +32,7 @@ class ProductListPage extends Component {
 
     return (
       <div className="col-md-12 mt-3">
-        <button type="button" className="btn btn-primary">Thêm sản phẩm</button>
+        <Link to="/product/add" className="btn btn-primary">Thêm sản phẩm</Link>
         <ProductList>
           {this.showProductItem(products)}
         </ProductList>
