@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ProductList from './../components/ProductList';
 import ProductItem from './../components/ProductItem';
 import { connect } from 'react-redux';
+import callApi from './../utils/apiCaller';
+
 const axios = require('axios');
 
 class ProductListPage extends Component {
@@ -16,17 +18,12 @@ class ProductListPage extends Component {
   componentDidMount() {
     //thời gian gọi lên server mất 5s, trong khi thời gian render mất 1s
     //mặc dù gắn products nhưng dữ liệu sẽ ko được trả ra
-    axios.get('http://localhost:3000/products')
-      .then((response) => {
-        // console.log(response.data);
-        this.setState({
-          products : response.data
-        });
-        
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    callApi('products','GET',null).then(res => {
+      this.setState({
+        products: res.data
+      });
+      
+    })
   }
 
   render() {
