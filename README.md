@@ -8,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `npm install react-router-dom`
 
+## Install Axios
+
+### `npm install axios`
+
 ## Available Scripts
 
 In the project directory, you can run:

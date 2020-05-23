@@ -38,7 +38,7 @@ export default class Menu extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand navbar-light bg-light">
-        <a className="navbar-brand">Call API</a>
+        <a className="navbar-brand" href="/">Call API</a>
         <ul className="nav navbar-nav">
           {this.showMenus(menus)}
         </ul>
