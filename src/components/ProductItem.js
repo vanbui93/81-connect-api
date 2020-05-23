@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class ProductItem extends Component {
   render() {
     var { product, index } = this.props;
+    
     return (
       <tr>
         <td>{index + 1}</td>
