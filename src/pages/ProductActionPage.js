@@ -23,26 +23,36 @@ export default class ProductActionPage extends Component {
   }
 
   onSubmitForm = (e) => {
-    var { txtName, txtPrice, chkbStatus } = this.state;
+    var { id, txtName, txtPrice, chkbStatus } = this.state;
     var { history } = this.props;
     e.preventDefault();
     // console.log(this.state);
-    callApi('products', 'POST', {
-      name: txtName,
-      price: txtPrice,
-      status: chkbStatus
-    }).then(res => {
-      console.log(res);
-      history.goBack();
-    });
-
+    if (id) { //update
+      callApi(`products/${id}`, 'PUT', {
+        name: txtName,
+        price: txtPrice,
+        status: chkbStatus
+      }).then(res => {
+        console.log(res);
+        history.goBack();
+      });
+    } else {
+      callApi('products', 'POST', {
+        name: txtName,
+        price: txtPrice,
+        status: chkbStatus
+      }).then(res => {
+        console.log(res);
+        history.goBack();
+      });
+    }
   }
 
   componentDidMount() {
     var { match } = this.props;
     if (match) {
       var id = match.params.id;
-      callApi(`products/${id}/`,'GET', null).then(res => {
+      callApi(`products/${id}/`, 'GET', null).then(res => {
         console.log(res.data);
         var data = res.data;
         this.setState({
@@ -51,7 +61,7 @@ export default class ProductActionPage extends Component {
           txtPrice: data.price,
           chkbStatus: data.status
         });
-        
+
       })
     }
   }

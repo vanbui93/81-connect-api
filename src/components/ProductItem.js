@@ -18,7 +18,7 @@ export default class ProductItem extends Component {
         <td>{product.id}</td>
         <td>{product.name}</td>
         <td>{product.price}</td>
-        <td><span className={`label label-${product.status ? 'default' : 'warning'}`}>{product.status === true ? 'Còn hàng' : 'Hết hàng'}</span></td>
+        <td><span className={`badge badge-${product.status===true ? 'warning' : 'secondary'}`}>{product.status === true ? 'Còn hàng' : 'Hết hàng'}</span></td>
         <td>
           <Link type="button"
             className="btn btn-primary mr-3"
