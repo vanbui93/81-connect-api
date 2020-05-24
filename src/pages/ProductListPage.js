@@ -28,7 +28,10 @@ class ProductListPage extends Component {
   }
 
   onDelete = (id) => {
-    console.log(id);
+    callApi(`products/${id}`,'DELETE',null).then(res => {
+      console.log(res);
+      
+    })
   }
 
   render() {
