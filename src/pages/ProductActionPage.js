@@ -42,10 +42,20 @@ export default class ProductActionPage extends Component {
     var { match } = this.props;
     if (match) {
       var id = match.params.id;
-      console.log(id);
+      callApi(`products/${id}/`,'GET', null).then(res => {
+        console.log(res.data);
+        var data = res.data;
+        this.setState({
+          id: data.id,
+          txtName: data.name,
+          txtPrice: data.price,
+          chkbStatus: data.status
+        });
+        
+      })
     }
   }
-  
+
   render() {
     var { txtName, txtPrice, chkbStatus } = this.state;
     return (
@@ -77,6 +87,7 @@ export default class ProductActionPage extends Component {
                 name="chkbStatus"
                 defaultValue={chkbStatus}
                 onChange={this.onChange}
+                checked={chkbStatus}
               />
                 Còn hàng
               </label>

@@ -11,6 +11,12 @@
       "name": "Samsung Galaxy S10",
       "price": 700,
       "status": true
+    },
+    {
+      "name": "Bphone",
+      "price": 700,
+      "status": false,
+      "id": 3
     }
   ]
 }
