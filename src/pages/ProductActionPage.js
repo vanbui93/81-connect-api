@@ -37,6 +37,15 @@ export default class ProductActionPage extends Component {
     });
 
   }
+
+  componentDidMount() {
+    var { match } = this.props;
+    if (match) {
+      var id = match.params.id;
+      console.log(id);
+    }
+  }
+  
   render() {
     var { txtName, txtPrice, chkbStatus } = this.state;
     return (
@@ -72,7 +81,7 @@ export default class ProductActionPage extends Component {
                 Còn hàng
               </label>
           </div>
-          <Link to="/product-list" className="btn btn-primary mr-2">
+          <Link to="/product-list" className="btn btn-warning mr-2">
             Trở lại
           </Link>
           <button type="submit" className="btn btn-primary">Lưu lại</button>
