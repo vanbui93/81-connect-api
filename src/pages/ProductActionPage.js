@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import callApi from './../utils/apiCaller';
+import { Link } from 'react-router-dom';
 
 export default class ProductActionPage extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class ProductActionPage extends Component {
 
   onSubmitForm = (e) => {
     var { txtName, txtPrice, chkbStatus } = this.state;
+    var { history } = this.props;
     e.preventDefault();
     // console.log(this.state);
     callApi('products', 'POST', {
@@ -31,6 +33,7 @@ export default class ProductActionPage extends Component {
       status: chkbStatus
     }).then(res => {
       console.log(res);
+      history.goBack();
     });
 
   }
@@ -69,6 +72,9 @@ export default class ProductActionPage extends Component {
                 Còn hàng
               </label>
           </div>
+          <Link to="/product-list" className="btn btn-primary mr-2">
+            Trở lại
+          </Link>
           <button type="submit" className="btn btn-primary">Lưu lại</button>
         </form>
       </div>

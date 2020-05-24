@@ -11,14 +11,14 @@ const routes = [
     main: () => <HomePage />
   },
   {
-    path: '/product/list',
+    path: '/product-list',
     exact: false,
     main: () => <ProductListPage />
   },
   {
     path: '/product/add',
     exact: false,
-    main: () => <ProductActionPage />
+    main: ({history}) => <ProductActionPage history={history} />
   },
   {
     path: '/product/:id/edit',

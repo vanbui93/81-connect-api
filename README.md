@@ -8,6 +8,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `npm install react-router-dom`
 
+Create server to load data, you can Install JSON Server
+
+### `npm install -g json-server`
+
+## Start JSON Server
+
+### `json-server --watch db.json`
+
 ## Install Axios
 
 ### `npm install axios`

@@ -10,7 +10,7 @@ const menus = [
   },
   {
     name: 'Quản lý sản phẩm',
-    to: '/product/list',
+    to: '/product-list',
     exact: false
   }
 ];
