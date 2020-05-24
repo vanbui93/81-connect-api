@@ -11,12 +11,6 @@
       "name": "Samsung Galaxy S10",
       "price": 700,
       "status": true
-    },
-    {
-      "name": "Bphone 4",
-      "price": "600",
-      "status": false,
-      "id": 3
     }
   ]
 }
