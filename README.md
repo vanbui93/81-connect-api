@@ -20,6 +20,11 @@ Create server to load data, you can Install JSON Server
 
 ### `npm install axios`
 
+Resolve middleware error by using redux-thunk
+Sử dụng redux-thunk để trì hoãn việc dispatch => fetch dữ liệu xong mới dispatch
+
+### `npm install redux-thunk --save`
+
 ## Available Scripts
 
 In the project directory, you can run:
