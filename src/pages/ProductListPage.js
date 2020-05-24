@@ -19,19 +19,37 @@ class ProductListPage extends Component {
   componentDidMount() {
     //thời gian gọi lên server mất 5s, trong khi thời gian render mất 1s
     //mặc dù gắn products nhưng dữ liệu sẽ ko được trả ra
-    callApi('products','GET',null).then(res => {
+    callApi('products', 'GET', null).then(res => {
       this.setState({
         products: res.data
       });
-      
+
     })
   }
 
-  onDelete = (id) => {
-    callApi(`products/${id}`,'DELETE',null).then(res => {
-      console.log(res);
-      
+  onDelete = (deleteId) => {
+    var { products } = this.state;
+    callApi(`products/${deleteId}`, 'DELETE', null).then(res => {
+      if (res.status === 200) { //if delete on server ok
+        var index = this.findIndex(products, deleteId);
+        if(index !==-1){
+          products.splice(index,1);
+          this.setState({
+            products: products
+          });
+        }
+      }
     })
+  }
+
+  findIndex = (products, id) => {
+    var result = -1;
+    products.forEach((product, index) => {
+      if (product.id = id) {
+        result = index;
+      }
+    });
+    return result;
   }
 
   render() {
