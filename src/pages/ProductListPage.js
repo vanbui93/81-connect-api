@@ -4,6 +4,7 @@ import ProductItem from './../components/ProductItem';
 import { connect } from 'react-redux';
 import callApi from './../utils/apiCaller';
 import { Link } from 'react-router-dom';
+import { actFetchProduct } from './../actions/index';
 
 const axios = require('axios');
 
@@ -20,10 +21,7 @@ class ProductListPage extends Component {
     //thời gian gọi lên server mất 5s, trong khi thời gian render mất 1s
     //mặc dù gắn products nhưng dữ liệu sẽ ko được trả ra
     callApi('products', 'GET', null).then(res => {
-      this.setState({
-        products: res.data
-      });
-
+      this.props.fetchAllProduct(res.data);
     })
   }
 
@@ -53,8 +51,8 @@ class ProductListPage extends Component {
   }
 
   render() {
-    var { products } = this.state;
-
+    var { products } = this.props;
+    
     return (
       <div className="col-md-12 mt-3">
         <Link to="/product/add" className="btn btn-primary">Thêm sản phẩm</Link>
@@ -88,5 +86,12 @@ const mapStateToProps = (state, props) => {
   }
 }
 
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    fetchAllProduct: (products) => {
+      dispatch(actFetchProduct(products))
+    }
+  }
+}
 
-export default connect(mapStateToProps, null)(ProductListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListPage);
