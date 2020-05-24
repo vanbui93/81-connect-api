@@ -4,7 +4,7 @@ import ProductItem from './../components/ProductItem';
 import { connect } from 'react-redux';
 import callApi from './../utils/apiCaller';
 import { Link } from 'react-router-dom';
-import { actFetchProduct } from './../actions/index';
+import { actFetchProductRequest } from './../actions/index';
 
 const axios = require('axios');
 
@@ -18,11 +18,7 @@ class ProductListPage extends Component {
 
   //au khi render lần 1 xong thì cdm sẽ đc gọi => sau đó setState => render lại lần 2
   componentDidMount() {
-    //thời gian gọi lên server mất 5s, trong khi thời gian render mất 1s
-    //mặc dù gắn products nhưng dữ liệu sẽ ko được trả ra
-    callApi('products', 'GET', null).then(res => {
-      this.props.fetchAllProduct(res.data);
-    })
+    this.props.fetchAllProduct();
   }
 
   onDelete = (deleteId) => {
@@ -89,7 +85,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     fetchAllProduct: (products) => {
-      dispatch(actFetchProduct(products))
+      dispatch(actFetchProductRequest(products))
     }
   }
 }
