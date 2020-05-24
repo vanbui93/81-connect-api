@@ -27,6 +27,10 @@ class ProductListPage extends Component {
     })
   }
 
+  onDelete = (id) => {
+    console.log(id);
+  }
+
   render() {
     var { products } = this.state;
 
@@ -45,6 +49,7 @@ class ProductListPage extends Component {
       result = products.map((product, index) => {
         return (
           <ProductItem
+            onDelete={this.onDelete}
             key={index}
             product={product}
             index={index}
