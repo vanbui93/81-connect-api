@@ -11,6 +11,12 @@
       "name": "Samsung Galaxy S10",
       "price": 700,
       "status": true
+    },
+    {
+      "id": 6,
+      "name": "Khoai tây",
+      "price": "30000",
+      "status": true
     }
   ]
 }
