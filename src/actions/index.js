@@ -45,3 +45,19 @@ export const actAddProduct = (product) => {
         product
     }
 }
+
+export const  actGetItemProductRequest = (id) => {
+    return (dispatch) => {
+        return callApi(`products/${id}`,'GET',null).then(res => {
+            dispatch(actGetItemProduct(res.data));                     //res trả về 1 product
+        })
+    }
+}
+
+//get product trong store, ko phải trên server
+export const actGetItemProduct = (product) => {
+    return {
+        type: Types.GET_ITEM_EDIT,
+        product
+    }
+}
