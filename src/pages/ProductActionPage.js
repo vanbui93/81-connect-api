@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import callApi from './../utils/apiCaller';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actAddProductRequest, actGetItemProductRequest, actUpdateProductRequest } from './../actions/index';
@@ -74,7 +73,8 @@ class ProductActionPage extends Component {
         <form onSubmit={this.onSubmitForm}>
           <div className="form-group">
             <label>Tên sản phẩm</label>
-            <input type="text" name="" className="form-control"
+            <input type="text" 
+              className="form-control"
               name="txtName"
               defaultValue={txtName}
               onChange={this.onChange}

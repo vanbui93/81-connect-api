@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Iphone X",
-      "price": 500,
+      "price": "32",
       "status": true
     },
     {
@@ -17,6 +17,18 @@
       "price": "1000",
       "status": true,
       "id": 6
+    },
+    {
+      "id": 7,
+      "name": "bánh mì",
+      "price": "180000",
+      "status": false
+    },
+    {
+      "id": 8,
+      "name": "Rau xà lách sống 8787",
+      "price": "180000",
+      "status": true
     }
   ]
 }

@@ -4,7 +4,7 @@ export default class ProductList extends Component {
   render() {
     return (
       <div className="list-group mt-2">
-        <a href="#" className="list-group-item active">Danh sách sản phẩm</a>
+        <a href="/" className="list-group-item active">Danh sách sản phẩm</a>
         <table className="table table-bordered">
           <thead className="thead-primary">
             <tr>

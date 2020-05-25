@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { actFetchProductRequest, actDeleteProductRequest } from './../actions/index';
 
-const axios = require('axios');
-
 class ProductListPage extends Component {
 
   //Sau khi render lần 1 xong thì cdm sẽ đc gọi => sau đó setState => render lại lần 2
