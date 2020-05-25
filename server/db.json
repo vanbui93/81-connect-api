@@ -13,10 +13,10 @@
       "id": 2
     },
     {
-      "name": "Khoai tây",
+      "id": 6,
+      "name": "Khoai tây Pồ tây tồ",
       "price": "1000",
-      "status": true,
-      "id": 6
+      "status": true
     },
     {
       "id": 7,
