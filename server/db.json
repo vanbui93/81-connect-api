@@ -1,22 +1,22 @@
 {
   "products": [
     {
+      "id": 1,
       "name": "Iphone X",
       "price": 500,
-      "status": false,
-      "id": 1
+      "status": true
     },
     {
-      "id": 2,
       "name": "Samsung Galaxy S10",
       "price": 700,
-      "status": true
+      "status": false,
+      "id": 2
     },
     {
-      "id": 6,
       "name": "Khoai tây",
-      "price": "30000",
-      "status": true
+      "price": "1000",
+      "status": true,
+      "id": 6
     }
   ]
 }

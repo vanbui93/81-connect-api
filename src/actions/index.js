@@ -61,3 +61,19 @@ export const actGetItemProduct = (product) => {
         product
     }
 }
+
+export const actUpdateProductRequest = (product) => {
+   return dispatch => {
+    return callApi(`products/${product.id}`,'PUT', product).then(res => {
+        dispatch(actUpdateProduct(product));
+    })
+   }
+}
+
+//xử lý update trên UserInterFace
+export const actUpdateProduct = (product) => {
+    return {
+        type: Types.UPDATE_PRODUCTS,
+        product
+    }
+}
