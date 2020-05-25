@@ -55,21 +55,27 @@ class ProductActionPage extends Component {
     if (match) {
       var id = match.params.id;
       this.props.onEditProductItem(id);
-      // callApi(`products/${id}/`, 'GET', null).then(res => {
-      //   // console.log(res.data);
-        
-      //   var data = res.data;
-      //   this.setState({
-      //     id: data.id,
-      //     txtName: data.name,
-      //     txtPrice: data.price,
-      //     chkbStatus: data.status
-      //   });
-      // })
+    }
+
+  }
+
+  //componentWillReceiveProps sẽ được gọi sau khi nhận được 1 props trên store: render => componentDidMount => componentWillReceiveProps
+  //sau khi gọi mapStateToProps => thì componentWillReceiveProps mới được chạy
+  componentWillReceiveProps(nextProps) {
+    if (nextProps && nextProps.itemEditing) {
+      var { itemEditing } = nextProps;
+      this.setState({
+        id: itemEditing.id,
+        txtName: itemEditing.name,
+        txtPrice: itemEditing.price,
+        chkbStatus: itemEditing.status
+      })
     }
   }
 
   render() {
+    console.log('render');
+
     var { txtName, txtPrice, chkbStatus } = this.state;
     return (
       <div className="col-6">
@@ -115,6 +121,12 @@ class ProductActionPage extends Component {
   }
 }
 
+const mapStateToProps = (state, props) => {
+  return {
+    itemEditing: state.itemEditing
+  }
+}
+
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onAddProductItem: (product) => {
@@ -126,4 +138,4 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(ProductActionPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductActionPage)

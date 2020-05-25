@@ -10,7 +10,7 @@ const itemEditing = (state=initialState,action) => {
       return action.product               //lưu product {} edit lên store
       
     default:
-      return [...state];
+      return state;
   }
 }
 
