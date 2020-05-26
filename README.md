@@ -30,7 +30,7 @@ json-server --watch db.json
 npm install axios
 ```
 
-Resolve middleware error by using redux-thunk
+## Resolve middleware error by using redux-thunk
 Sử dụng redux-thunk để trì hoãn việc dispatch => fetch dữ liệu xong mới dispatch
 
 ```sh
